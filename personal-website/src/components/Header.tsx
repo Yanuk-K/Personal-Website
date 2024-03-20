@@ -8,31 +8,27 @@ function Header() {
         },
         {
             id: 2,
-            name: "SKILLS"
-        },
-        {
-            id: 3,
             name: "PROJECTS"
         },
         {
-            id: 4,
+            id: 3,
             name: "RESUME"
         },
         {
-            id: 5,
+            id: 4,
             name: "INTERESTS"
         },
         {
-            id: 6,
+            id: 5,
             name: "CONTACTS"
         }
     ]
     return (
-        <div className='flex gap-14'>
+        <div className='flex items-center w-screen border-b-[1px] justify-evenly'>
             {menu.map((item)=>(
                 <div className='cursor-pointer
                 hover:underline font-medium'>
-                    <h2>{item.name}</h2>
+                    <a href={'/'+item.name.toLowerCase()+'/'}><h2>{item.name}</h2></a>
                 </div>
             ))}
         </div>

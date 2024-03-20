@@ -20,6 +20,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", "Skills/Skills.tsx", "Resume/Resume.tsx", "Projects/Projects.tsx", "Interests/Interests.tsx", "Contacts/Contacts.tsx"],
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "types": ["node"]
 }
