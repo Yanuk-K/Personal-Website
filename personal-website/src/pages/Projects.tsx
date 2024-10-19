@@ -1,10 +1,5 @@
-import React from 'react'
-import Header from '../components/Header'
-
 function Projects() {
-  return (
-    <div><Header/>Projects</div>
-  )
+  return <div>Projects</div>;
 }
 
-export default Projects
+export default Projects;

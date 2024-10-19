@@ -1,10 +1,5 @@
-import React from 'react'
-import Header from '../components/Header'
-
 function Resume() {
-  return (
-    <div><Header/>Resume</div>
-  )
+  return <div>Resume</div>;
 }
 
-export default Resume
+export default Resume;
