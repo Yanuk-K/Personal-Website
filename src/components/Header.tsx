@@ -28,8 +28,8 @@ function Header() {
           className={clsx(
             "flex h-full items-center justify-center uppercase",
             path === "/" + item.name.toLowerCase() + "/"
-              ? "bg-black text-white"
-              : "text-text"
+              ? "bg-darkBg dark:bg-bg text-darkText dark:text-text"
+              : "text-text dark:text-darkText"
           )}
           href={"/" + item.name.toLowerCase() + "/"}
         >
