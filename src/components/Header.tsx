@@ -1,4 +1,5 @@
 import { ThemeSwitcher } from "./theme-switcher";
+import clsx from "clsx";
 
 function Header() {
   const menu = [
@@ -16,29 +17,27 @@ function Header() {
     },
     {
       id: 4,
-      name: "INTERESTS",
-    },
-    {
-      id: 5,
       name: "CONTACTS",
     },
   ];
+  const path = window.location.pathname;
   return (
-    <div className="border-b-border dark:border-b-darkBorder rounded-tr-base border-b-4 text-xl w600:text-lg w400:h-10 w400:text-base portrait:rounded-none">
-      <div className="flex items-center border-b-[1px] justify-evenly">
-        {menu.map((item) => (
-          <div
-            className="cursor-pointer
-                hover:underline font-medium"
-          >
-            <a href={"/" + item.name.toLowerCase() + "/"}>
-              <h2>{item.name}</h2>
-            </a>
-          </div>
-        ))}
-        <ThemeSwitcher />
-      </div>
-    </div>
+    <nav className="border-b-border dark:border-b-darkBorder grid h-[50px] grid-cols-[1fr_1fr_1fr_1fr_50px] rounded-tr-base border-b-4 text-xl w600:text-lg w400:h-10 w400:text-base portrait:rounded-none">
+      {menu.map((item) => (
+        <a
+          className={clsx(
+            "flex h-full items-center justify-center uppercase",
+            path === "/" + item.name.toLowerCase() + "/"
+              ? "bg-black text-white"
+              : "text-text"
+          )}
+          href={"/" + item.name.toLowerCase() + "/"}
+        >
+          {item.name}
+        </a>
+      ))}
+      <ThemeSwitcher />
+    </nav>
   );
 }
 
