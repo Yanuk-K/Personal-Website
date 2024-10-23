@@ -7,8 +7,8 @@ function Home() {
     "Computer Science",
     "Mathematics",
     "Web3.0",
-    "Cryptocurrency",
     "Punk Rock",
+    "Specialty Coffee",
   ];
   return (
     <div className="min-h-[87dvh] flex flex-col justify-between">
@@ -20,19 +20,11 @@ function Home() {
 
         <div>
           Frameworks used to make this website:
-          <div className="flex-row">
-            <a
-              className="mr-auto mt-10 flex w-full flex-wrap items-center gap-10"
-              href="https://vitejs.dev"
-              target="_blank"
-            >
+          <div className="flex-row flex">
+            <a className="" href="https://vitejs.dev" target="_blank">
               <img src={viteLogo} className="logo" alt="Vite logo" />
             </a>
-            <a
-              className="mr-auto mt-10 flex w-full flex-wrap items-center gap-10"
-              href="https://react.dev"
-              target="_blank"
-            >
+            <a className="" href="https://react.dev" target="_blank">
               <img src={reactLogo} className="logo react" alt="React logo" />
             </a>
           </div>
