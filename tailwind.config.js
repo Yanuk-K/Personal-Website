@@ -6,19 +6,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        main: "#FD9745",
+        main: "#8bbd68",
         mainAccent: "#fc7303", // not needed for shadcn components
         overlay: "rgba(0,0,0,0.8)",
 
         // light mode
-        bg: "#fff4e0",
+        bg: "#FFF1DB",
         text: "#000",
         border: "#000",
 
         // dark mode
-        darkBg: "#272933",
+        darkBg: "#536493",
         darkText: "#eeefe9",
         darkBorder: "#000",
+        darkMain: "#5d7d42",
         secondaryBlack: "#212121", // opposite of plain white, not used pitch black because borders and box-shadows are that color
       },
       borderRadius: {
@@ -42,8 +43,8 @@ export default {
         w450: { raw: "(max-width: 450px)" },
       },
       animation: {
-        marquee: "marquee 5s linear infinite",
-        marquee2: "marquee2 5s linear infinite",
+        marquee: "marquee 20s linear infinite",
+        marquee2: "marquee2 20s linear infinite",
       },
       screens: {
         smallHeight: { raw: "(max-height: 550px)" },

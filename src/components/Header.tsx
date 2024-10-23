@@ -26,7 +26,7 @@ function Header() {
       {menu.map((item) => (
         <a
           className={clsx(
-            "flex h-full items-center justify-center uppercase",
+            "flex h-full items-center justify-center uppercase border-r-4 border-border",
             path === "/" + item.name.toLowerCase() + "/"
               ? "bg-darkBg dark:bg-bg text-darkText dark:text-text"
               : "text-text dark:text-darkText"
