@@ -55,7 +55,7 @@ const router = createBrowserRouter(
 
 const App = () => {
   return (
-    <body className="">
+    <>
       <ThemeProvider attribute="class" disableTransitionOnChange>
         <div className="outline-border dark:outline-darkBorder grid h-[800px] max-h-[100dvh] w-[1000px] max-w-[100dvw] grid-cols-[100px_auto] rounded-base shadow-[10px_10px_0_0_#000] outline outline-4 w600:grid-cols-[70px_auto] w500:grid-cols-1 portrait:h-[100dvh] portrait:w-[100dvw]">
           <header className="border-r-border dark:border-r-darkBorder relative flex items-center justify-center rounded-l-base border-r-4 bg-main dark:bg-darkMain portrait:hidden portrait:rounded-none">
@@ -75,7 +75,7 @@ const App = () => {
           </main>
         </div>
       </ThemeProvider>
-    </body>
+    </>
   );
 };
 
