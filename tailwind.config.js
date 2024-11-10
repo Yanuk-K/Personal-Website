@@ -5,6 +5,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        PixelMplus: ["PixelMplus", "sans-serif"],
+        PixelMplusBold: ["PixelMplusBold", "sans-serif"],
+      },
       colors: {
         main: "#8bbd68",
         mainAccent: "#fc7303", // not needed for shadcn components
