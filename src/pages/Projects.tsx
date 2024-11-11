@@ -9,10 +9,12 @@ export default function Projects() {
       githubLink: "https://github.com/Yanuk-K/Personal-Website",
     },
     {
-      name: "project 2",
-      description: "proj 2 desc",
+      name: "Grinder Calculator",
+      description:
+        "Grinder click caculator lets you easily convert your grinder's click sizes to other grinder's click size.",
       previewImage: "../assets/proj2.jpg",
-      githubLink: "www.github.com/proj2",
+      githubLink:
+        "https://github.com/Yanuk-K/Personal-Website/blob/main/src/pages/GrinderCalc.tsx",
     },
     {
       name: "project 3",

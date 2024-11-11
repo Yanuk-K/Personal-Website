@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import GrindSlider from "../components/GrindSlider";
 import { List, arrayMove } from "react-movable";
 
