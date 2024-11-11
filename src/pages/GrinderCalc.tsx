@@ -84,13 +84,13 @@ function GrinderCalc() {
         onChange={(clickValue) => onSliderChange(id, clickValue)} // Pass handler
         key={id}
       />
-      <div>
+      <div className="absolute translate-y-[-125%]">
         <input
           id="micronValue"
           type="number"
           value={micronValue}
           onChange={onMicronValueInputChange}
-          className="border p-2 rounded w-20 text-center"
+          className="border border-black p-2 rounded w-20 text-center bg-white"
         />
         {" microns"}
       </div>
@@ -102,7 +102,10 @@ function GrinderCalc() {
   return (
     <>
       <div className="min-h-[87dvh] flex flex-col justify-between">
-        <div className="w-[75dvw] w800:w-[95dvw] m-auto p-8">
+        <div className="font-PixelMplusBold text-4xl p-10 text-center">
+          <p>Grind Click Calculator</p>
+        </div>
+        <div className="w-[90%] w800:w-[100%] m-auto p-8">
           <List
             lockVertically
             values={items}

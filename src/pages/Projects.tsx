@@ -5,22 +5,25 @@ export default function Projects() {
     {
       name: "project 1",
       description: "proj 1 desc",
-      previewImage: "../assets/proj1.jpg",
+      previewImage: "../src/assets/proj1.jpg",
       githubLink: "https://github.com/Yanuk-K/Personal-Website",
+      liveLink: "",
     },
     {
       name: "Grinder Calculator",
       description:
         "Grinder click caculator lets you easily convert your grinder's click sizes to other grinder's click size.",
-      previewImage: "../assets/proj2.jpg",
+      previewImage: "../src/assets/proj3.jpg",
       githubLink:
         "https://github.com/Yanuk-K/Personal-Website/blob/main/src/pages/GrinderCalc.tsx",
+      liveLink: "/grindercalc/",
     },
     {
       name: "project 3",
       description: "proj 3 desc",
-      previewImage: "../assets/proj3.jpg",
+      previewImage: "../src/assets/proj3.jpg",
       githubLink: "www.github.com/proj3",
+      liveLink: "",
     },
   ];
   return (
@@ -37,7 +40,7 @@ export default function Projects() {
                 ratio={2 / 1}
               >
                 <img
-                  className="w-full rounded-base"
+                  className="w-full h-full rounded-base"
                   src={`${project.previewImage}`}
                   alt={project.name}
                 />
@@ -52,7 +55,14 @@ export default function Projects() {
                   {project.description}
                 </p>
 
-                <div className="mt-8 grid grid-cols-1 gap-5 text-base w400:text-sm">
+                <div className="mt-8 grid grid-cols-2 gap-5 text-base w400:text-sm">
+                  <a
+                    className="border-border dark:border-darkBorder text-text shadow-light dark:shadow-dark cursor-pointer rounded-base border-2 bg-main px-4 py-2 text-center uppercase transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none"
+                    href={project.liveLink}
+                    target="_blank"
+                  >
+                    Visit
+                  </a>
                   <a
                     className="border-border dark:border-darkBorder text-text shadow-light dark:shadow-dark cursor-pointer rounded-base border-2 bg-main px-4 py-2 text-center uppercase transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none"
                     href={project.githubLink}

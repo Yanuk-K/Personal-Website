@@ -89,7 +89,7 @@ const GrindSlider: React.FC<GrindSliderProps> = ({
     label: string;
     type: "major" | "minor";
   }) => {
-    const positionPercentage = (mark.value / max) * 106;
+    const positionPercentage = (mark.value / max) * 100;
 
     return (
       <span
@@ -120,7 +120,7 @@ const GrindSlider: React.FC<GrindSliderProps> = ({
         style={{
           position: "absolute",
           right: "0%",
-          transform: "translateY(-110%)",
+          transform: "translateY(300%)",
         }}
       >
         {Math.floor(value / clicksPerRotation) +
@@ -142,14 +142,7 @@ const GrindSlider: React.FC<GrindSliderProps> = ({
           }`
         }
       />
-      <div
-        style={{
-          position: "absolute",
-          width: "100%",
-          top: "50%",
-          transform: "translateY(-50%)",
-        }}
-      >
+      <div className="absolute w-[106.2%] w1000:w-[106.5%] w800:w-[106.9%] w700:w-[108%] w600:w-[111%] top-[50%] translate-y-[-50%]">
         {generateMarks().map((mark) => renderMarkLabel(mark))}
       </div>
     </div>

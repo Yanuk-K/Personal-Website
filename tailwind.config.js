@@ -52,6 +52,7 @@ export default {
       },
       screens: {
         smallHeight: { raw: "(max-height: 550px)" },
+        w100: { max: "1000px" },
         w800: { max: "800px" },
         w700: { max: "700px" },
         w600: { max: "600px" },
