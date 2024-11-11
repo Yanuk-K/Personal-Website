@@ -39,46 +39,70 @@ function GrinderCalc() {
   var GRINDERS: {
     name: string;
     micronPerClick: number;
-    numbersPerRotation: number;
     clicksPerRotation: number;
   }[] = [
     {
       name: "1zpresso K-Ultra",
       micronPerClick: 20,
-      numbersPerRotation: 100,
       clicksPerRotation: 10,
     },
     {
       name: "1zpresso J-Ultra",
       micronPerClick: 8,
-      numbersPerRotation: 10,
       clicksPerRotation: 100,
     },
     {
       name: "C40",
       micronPerClick: 30,
-      numbersPerRotation: 10,
-      clicksPerRotation: 10,
+      clicksPerRotation: 12,
     },
   ];
 
-  const elements = GRINDERS.map((grinder, id) => {
-    return (
+  // State to store the current micron level
+  const [micronValue, setMicronValue] = useState(0);
+
+  // Handler for when a slider changes, updates the micron value
+  const onSliderChange = (index: number, newClickValue: number) => {
+    const selectedGrinder = GRINDERS[index];
+    const newMicronValue = newClickValue * selectedGrinder.micronPerClick;
+    setMicronValue(newMicronValue);
+  };
+
+  // Handler for text input change
+  const onMicronValueInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newMicronValue = parseInt(e.target.value, 10) || 0; // Parse input to integer, default to 0 if NaN
+    setMicronValue(newMicronValue);
+  };
+
+  const elements = GRINDERS.map((grinder, id) => (
+    <div>
+      <p className="text-xl font-bold">{grinder.name}</p>
       <GrindSlider
         max={1300 / grinder.micronPerClick}
         clicksPerRotation={grinder.clicksPerRotation}
-        currentValue={0}
+        currentValue={Math.round(micronValue / grinder.micronPerClick)} // Use exact micron value / micronPerClick for each slider
+        onChange={(clickValue) => onSliderChange(id, clickValue)} // Pass handler
         key={id}
       />
-    );
-  });
+      <div>
+        <input
+          id="micronValue"
+          type="number"
+          value={micronValue}
+          onChange={onMicronValueInputChange}
+          className="border p-2 rounded w-20 text-center"
+        />
+        {" microns"}
+      </div>
+    </div>
+  ));
 
   const [items, setItems] = React.useState([0, 1, 2]);
 
   return (
     <>
       <div className="min-h-[87dvh] flex flex-col justify-between">
-        <div className="max-w-[87dvw] w-[50dvw] m-auto p-8">
+        <div className="w-[75dvw] w800:w-[95dvw] m-auto p-8">
           <List
             lockVertically
             values={items}
@@ -102,7 +126,7 @@ function GrinderCalc() {
                 key={props.key}
                 style={{
                   ...props.style,
-                  padding: "1.5em",
+                  padding: "0 0 0 1.5em",
                   margin: "0.5em 0em",
                   listStyleType: "none",
                   cursor: isDragged ? "grabbing" : "grab",
