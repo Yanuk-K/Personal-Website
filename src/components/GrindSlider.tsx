@@ -142,7 +142,7 @@ const GrindSlider: React.FC<GrindSliderProps> = ({
           }`
         }
       />
-      <div className="absolute w-[100%] top-[50%] translate-y-[-50%]">
+      <div className="absolute w-[106.3%] w1200:w-[100%] top-[50%] translate-y-[-50%]">
         {generateMarks().map((mark) => renderMarkLabel(mark))}
       </div>
     </div>
