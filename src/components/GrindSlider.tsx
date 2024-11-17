@@ -125,7 +125,7 @@ const GrindSlider: React.FC<GrindSliderProps> = ({
       >
         {Math.floor(value / clicksPerRotation) +
           " rotations " +
-          (value % clicksPerRotation) +
+          Math.floor(value % clicksPerRotation) +
           " clicks "}
       </div>
       <StyledSlider
@@ -138,7 +138,7 @@ const GrindSlider: React.FC<GrindSliderProps> = ({
           `${
             Math.floor(value / clicksPerRotation) +
             "." +
-            (value % clicksPerRotation)
+            Math.floor(value % clicksPerRotation)
           }`
         }
       />
