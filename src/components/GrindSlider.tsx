@@ -59,7 +59,7 @@ const GrindSlider: React.FC<GrindSliderProps> = ({
 
   // Generate major and minor marks based on the clicks per rotation
   const generateMarks = () => {
-    const marks: { value: number; label: string; type: "major" | "minor" }[] =
+    const marks: { value: number; label: number; type: "major" | "minor" }[] =
       [];
     for (let i = 0; i <= max; i++) {
       const isMajorMark = i % clicksPerRotation === 0;
@@ -69,13 +69,13 @@ const GrindSlider: React.FC<GrindSliderProps> = ({
       if (isMajorMark) {
         marks.push({
           value: i,
-          label: `${i / clicksPerRotation}`,
+          label: i / clicksPerRotation,
           type: "major",
         });
       } else if (isMinorMark) {
         marks.push({
           value: i,
-          label: `${i % clicksPerRotation}`,
+          label: i % clicksPerRotation,
           type: "minor",
         });
       }
@@ -86,7 +86,7 @@ const GrindSlider: React.FC<GrindSliderProps> = ({
 
   const renderMarkLabel = (mark: {
     value: number;
-    label: string;
+    label: number;
     type: "major" | "minor";
   }) => {
     const positionPercentage = (mark.value / max) * 100;
@@ -120,7 +120,7 @@ const GrindSlider: React.FC<GrindSliderProps> = ({
         style={{
           position: "absolute",
           right: "0%",
-          transform: "translateY(300%)",
+          transform: "translateY(350%)",
         }}
       >
         {Math.floor(value / clicksPerRotation) +
@@ -142,7 +142,7 @@ const GrindSlider: React.FC<GrindSliderProps> = ({
           }`
         }
       />
-      <div className="absolute w-[106.2%] w1000:w-[106.5%] w800:w-[106.9%] w700:w-[108%] w600:w-[111%] top-[50%] translate-y-[-50%]">
+      <div className="absolute w-[100%] top-[50%] translate-y-[-50%]">
         {generateMarks().map((mark) => renderMarkLabel(mark))}
       </div>
     </div>
