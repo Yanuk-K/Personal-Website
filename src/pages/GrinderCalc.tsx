@@ -43,18 +43,18 @@ function GrinderCalc() {
   }[] = [
     {
       name: "1zpresso K-Ultra",
-      micronPerClick: 20,
+      micronPerClick: 14,
       clicksPerRotation: 10,
     },
     {
       name: "1zpresso J-Ultra",
-      micronPerClick: 8,
+      micronPerClick: 3.18,
       clicksPerRotation: 100,
     },
     {
       name: "C40",
-      micronPerClick: 30,
-      clicksPerRotation: 12,
+      micronPerClick: 27.25,
+      clicksPerRotation: 10,
     },
   ];
 
@@ -78,7 +78,7 @@ function GrinderCalc() {
     <div>
       <p className="text-xl font-bold">{grinder.name}</p>
       <GrindSlider
-        max={1300 / grinder.micronPerClick}
+        max={1400 / grinder.micronPerClick}
         clicksPerRotation={grinder.clicksPerRotation}
         currentValue={Math.round(micronValue / grinder.micronPerClick)} // Use exact micron value / micronPerClick for each slider
         onChange={(clickValue) => onSliderChange(id, clickValue)} // Pass handler
