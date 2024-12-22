@@ -5,7 +5,7 @@ export default function Projects() {
     {
       name: "project 1",
       description: "proj 1 desc",
-      previewImage: "../src/assets/proj1.jpg",
+      previewImage: "https://i.imgur.com/FWMRhag.png",
       githubLink: "https://github.com/Yanuk-K/Personal-Website",
       liveLink: "",
     },
@@ -13,7 +13,7 @@ export default function Projects() {
       name: "Grinder Calculator",
       description:
         "Grinder click caculator lets you easily convert your grinder's click sizes to other grinder's click size.",
-      previewImage: "../src/assets/proj3.jpg",
+      previewImage: "https://i.imgur.com/FWMRhag.pngs",
       githubLink:
         "https://github.com/Yanuk-K/Personal-Website/blob/main/src/pages/GrinderCalc.tsx",
       liveLink: "/grindercalc/",
@@ -21,7 +21,7 @@ export default function Projects() {
     {
       name: "project 3",
       description: "proj 3 desc",
-      previewImage: "../src/assets/proj3.jpg",
+      previewImage: "https://i.imgur.com/FWMRhag.png",
       githubLink: "www.github.com/proj3",
       liveLink: "",
     },
