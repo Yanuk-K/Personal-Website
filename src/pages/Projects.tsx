@@ -3,11 +3,12 @@ import { AspectRatio } from "../components/ui/aspect-ratio";
 export default function Projects() {
   const PROJECTS = [
     {
-      name: "Lox Interpreter",
-      description: "Interpreter for Lox Programming Language, written in Java",
-      previewImage: "https://imgur.com/a/cZfwWUI",
-      githubLink: "https://github.com/Yanuk-K/LOX_Interpreter",
-      liveLink: "",
+      name: "This Website",
+      description:
+        "Made using Vite+Typescript, designed using Neobrutalism, Material UI, Tailwind, and powered by AWS Amplify.",
+      previewImage: "https://imgur.com/a/9fLQzph",
+      githubLink: "www.github.com/proj3",
+      liveLink: "https://yeunwook.kim/",
     },
     {
       name: "Grinder Calculator",
@@ -19,10 +20,10 @@ export default function Projects() {
       liveLink: "/grindercalc/",
     },
     {
-      name: "project 3",
-      description: "proj 3 desc",
-      previewImage: "https://i.imgur.com/FWMRhag.png",
-      githubLink: "www.github.com/proj3",
+      name: "Lox Interpreter",
+      description: "Interpreter for Lox Programming Language, written in Java",
+      previewImage: "https://imgur.com/a/cZfwWUI",
+      githubLink: "https://github.com/Yanuk-K/LOX_Interpreter",
       liveLink: "",
     },
   ];

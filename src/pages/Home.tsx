@@ -5,6 +5,7 @@ import Marquee from "../components/Marquee";
 function Home() {
   const items = [
     "Computer Science",
+    "AWS",
     "Mathematics",
     "Web3.0",
     "Punk Rock",
