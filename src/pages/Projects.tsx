@@ -1,12 +1,13 @@
 import { AspectRatio } from "../components/ui/aspect-ratio";
 
 export default function Projects() {
+  const CF_URL = "https://d3w3f1g6khau4p.cloudfront.net/proj_img/";
   const PROJECTS = [
     {
       name: "This Website",
       description:
         "Made using Vite+Typescript, designed using Neobrutalism, Material UI, Tailwind, and powered by AWS Amplify.",
-      previewImage: "https://i.imgur.com/qB5onMu.png",
+      previewImage: CF_URL + "Personal_Website.png",
       githubLink: "www.github.com/proj3",
       liveLink: "https://yeunwook.kim/",
     },
@@ -14,7 +15,7 @@ export default function Projects() {
       name: "Grinder Calculator",
       description:
         "Grinder click caculator lets you easily convert your grinder's click sizes to other grinder's click size.",
-      previewImage: "https://i.imgur.com/FWMRhag.pngs",
+      previewImage: CF_URL + "Grind_Calc.jpg",
       githubLink:
         "https://github.com/Yanuk-K/Personal-Website/blob/main/src/pages/GrinderCalc.tsx",
       liveLink: "/grindercalc/",
@@ -22,7 +23,7 @@ export default function Projects() {
     {
       name: "Lox Interpreter",
       description: "Interpreter for Lox Programming Language, written in Java",
-      previewImage: "https://i.imgur.com/TEDXS4W.png",
+      previewImage: CF_URL + "Lox_I_Proj.png",
       githubLink: "https://github.com/Yanuk-K/LOX_Interpreter",
       liveLink: "",
     },
