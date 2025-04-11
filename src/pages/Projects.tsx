@@ -6,7 +6,7 @@ export default function Projects() {
       name: "This Website",
       description:
         "Made using Vite+Typescript, designed using Neobrutalism, Material UI, Tailwind, and powered by AWS Amplify.",
-      previewImage: "https://imgur.com/a/9fLQzph",
+      previewImage: "https://i.imgur.com/qB5onMu.png",
       githubLink: "www.github.com/proj3",
       liveLink: "https://yeunwook.kim/",
     },
@@ -22,7 +22,7 @@ export default function Projects() {
     {
       name: "Lox Interpreter",
       description: "Interpreter for Lox Programming Language, written in Java",
-      previewImage: "https://imgur.com/a/cZfwWUI",
+      previewImage: "https://i.imgur.com/TEDXS4W.png",
       githubLink: "https://github.com/Yanuk-K/LOX_Interpreter",
       liveLink: "",
     },
