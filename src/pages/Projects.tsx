@@ -3,10 +3,10 @@ import { AspectRatio } from "../components/ui/aspect-ratio";
 export default function Projects() {
   const PROJECTS = [
     {
-      name: "project 1",
-      description: "proj 1 desc",
-      previewImage: "https://i.imgur.com/FWMRhag.png",
-      githubLink: "https://github.com/Yanuk-K/Personal-Website",
+      name: "Lox Interpreter",
+      description: "Interpreter for Lox Programming Language, written in Java",
+      previewImage: "https://imgur.com/a/cZfwWUI",
+      githubLink: "https://github.com/Yanuk-K/LOX_Interpreter",
       liveLink: "",
     },
     {
