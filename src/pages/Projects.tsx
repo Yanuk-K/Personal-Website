@@ -57,22 +57,7 @@ export default function Projects() {
                   {project.description}
                 </p>
 
-                <div className="mt-8 grid grid-cols-2 gap-5 text-base w400:text-sm">
-                  <a
-                    className="border-border dark:border-darkBorder text-text shadow-light dark:shadow-dark cursor-pointer rounded-base border-2 bg-main px-4 py-2 text-center uppercase transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none"
-                    href={project.liveLink}
-                    target="_blank"
-                  >
-                    Visit
-                  </a>
-                  <a
-                    className="border-border dark:border-darkBorder text-text shadow-light dark:shadow-dark cursor-pointer rounded-base border-2 bg-main px-4 py-2 text-center uppercase transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none"
-                    href={project.githubLink}
-                    target="_blank"
-                  >
-                    Github
-                  </a>
-                </div>
+                {activeLink(project)}
               </div>
             </div>
           </div>
@@ -80,4 +65,54 @@ export default function Projects() {
       })}
     </>
   );
+}
+
+function activeLink(project: { liveLink: string; githubLink: string }) {
+  if (project.liveLink != "" && project.githubLink != "") {
+    return (
+      <div className="mt-8 grid grid-cols-2 gap-5 text-base w400:text-sm">
+        <a
+          className="border-border dark:border-darkBorder text-text shadow-light dark:shadow-dark cursor-pointer rounded-base border-2 bg-main px-4 py-2 text-center uppercase transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none"
+          href={project.liveLink}
+          target="_blank"
+        >
+          Visit
+        </a>
+        <a
+          className="border-border dark:border-darkBorder text-text shadow-light dark:shadow-dark cursor-pointer rounded-base border-2 bg-main px-4 py-2 text-center uppercase transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none"
+          href={project.githubLink}
+          target="_blank"
+        >
+          Github
+        </a>
+      </div>
+    );
+  } else {
+    return (
+      <div className="mt-8 grid grid-cols-1 gap-5 text-base w400:text-sm">
+        {project.liveLink == "" ? (
+          <a
+            className="border-border dark:border-darkBorder text-text shadow-light dark:shadow-dark cursor-pointer rounded-base border-2 bg-main px-4 py-2 text-center uppercase transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none"
+            href={project.githubLink}
+            target="_blank"
+          >
+            Github
+          </a>
+        ) : (
+          <></>
+        )}
+        {project.githubLink == "" ? (
+          <a
+            className="border-border dark:border-darkBorder text-text shadow-light dark:shadow-dark cursor-pointer rounded-base border-2 bg-main px-4 py-2 text-center uppercase transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none"
+            href={project.liveLink}
+            target="_blank"
+          >
+            Visit
+          </a>
+        ) : (
+          <></>
+        )}
+      </div>
+    );
+  }
 }
