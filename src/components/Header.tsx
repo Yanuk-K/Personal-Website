@@ -32,11 +32,11 @@ function Header() {
           key={item.id}
           className={clsx(
             "flex h-full items-center justify-center uppercase border-r-4 border-border",
-            path === "/" + item.slug.toLowerCase()
+            path === "/" + item.slug + "/" || (path === "/" && item.slug === "")
               ? "bg-darkBg dark:bg-bg text-darkText dark:text-text"
               : "text-text dark:text-darkText"
           )}
-          href={"/" + item.slug.toLowerCase()}
+          href={item.slug === "" ? "/" : "/" + item.slug + "/"}
         >
           {item.name}
         </a>

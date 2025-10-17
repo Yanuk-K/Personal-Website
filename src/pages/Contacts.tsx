@@ -31,11 +31,11 @@ function Contacts() {
           >
             <iframe
               className="h-[100%] w-[100%] border-none"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d203317.18639187005!2d127.22209655!3d37.22798575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b523d6ace33f5%3A0x9d3235701951b5fb!2sYongin-si%2C%20Gyeonggi-do!5e0!3m2!1sen!2skr!4v1744382965116!5m2!1sen!2skr"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.6426728160895!2d-117.23693542334811!3d32.88117247865416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dc06c4414caf4f%3A0xefb6aafc89913ea7!2sUniversity%20of%20California%20San%20Diego!5e0!3m2!1sen!2sus!4v1760687981973!5m2!1sen!2sus"
             ></iframe>
           </div>
         </div>
-        <h3>Current Location: Yongin-si, Republic of Korea</h3>
+        <h3>Current Location: San Diego, CA</h3>
         <div className="mr-auto mt-10 flex w-full flex-wrap items-center gap-10">
           {links.map((link, id) => {
             return (

@@ -16,7 +16,7 @@ function Home() {
       <div className="w600:p-[30px] w600:text-lg w400:p-5 w400:text-base p-10 text-xl leading-[1.7]">
         <p>
           Hi👋 I’m Yeunwook Kim, a senior at UCSD majoring in
-          Mathematics-Computer Science based in Seoul, South Korea.
+          Mathematics-Computer Science based in San Diego, CA.
         </p>
 
         <div>
