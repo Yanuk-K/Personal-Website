@@ -6,18 +6,22 @@ function Header() {
     {
       id: 1,
       name: "HOME",
+      slug: ""
     },
     {
       id: 2,
       name: "PROJECTS",
+      slug: "projects",
     },
     {
       id: 3,
       name: "RESUME",
+      slug: "resume",
     },
     {
       id: 4,
       name: "CONTACTS",
+      slug: "contacts",
     },
   ];
   const path = window.location.pathname;
@@ -28,11 +32,11 @@ function Header() {
           key={item.id}
           className={clsx(
             "flex h-full items-center justify-center uppercase border-r-4 border-border",
-            path === "/" + item.name.toLowerCase() + "/"
+            path === "/" + item.slug.toLowerCase()
               ? "bg-darkBg dark:bg-bg text-darkText dark:text-text"
               : "text-text dark:text-darkText"
           )}
-          href={"/" + item.name.toLowerCase() + "/"}
+          href={"/" + item.slug.toLowerCase()}
         >
           {item.name}
         </a>

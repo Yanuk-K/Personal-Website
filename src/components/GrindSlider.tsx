@@ -1,150 +1,153 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo } from "react";
 import { Slider, styled } from "@mui/material";
 
 interface GrindSliderProps {
   max: number;
   clicksPerRotation: number;
-  currentValue: number;
+  value: number;
+  micronPerClick?: number;
   onChange?: (value: number) => void;
 }
 
 const StyledSlider = styled(Slider)(() => ({
   width: "100%",
-  height: "10dvh",
-  padding: "0 16px",
-  ".MuiSlider-rail": {
-    display: "none", // Hide the rail
+  padding: "16px 0 8px",
+  color: "#111",
+  "& .MuiSlider-rail": {
+    height: 12,
+    borderRadius: 0,
+    opacity: 1,
+    backgroundColor: "#ffe6b3",
+    border: "4px solid #000",
+    boxShadow: "4px 4px 0 #000",
   },
-  ".MuiSlider-track": {
-    display: "none", // Hide the track
+  "& .MuiSlider-track": {
+    height: 12,
+    borderRadius: 0,
+    background:
+      "repeating-linear-gradient(135deg, #111 0 5px, #ffce67 5px 10px)",
+    border: "4px solid #000",
+    boxShadow: "4px 4px 0 #000",
   },
-  ".MuiSlider-thumb": {
-    width: 2,
-    height: "80%",
-    backgroundColor: "black",
+  "& .MuiSlider-thumb": {
+    width: 28,
+    height: 28,
+    borderRadius: 0,
+    backgroundColor: "#5bf0ff",
+    border: "4px solid #000",
+    boxShadow: "4px 4px 0 #000",
+    marginTop: -10,
+    marginLeft: -14,
+    "&:before": {
+      display: "none",
+    },
     "&:hover, &.Mui-focusVisible, &.Mui-active": {
-      boxShadow: "none",
+      boxShadow: "4px 4px 0 #000",
+      backgroundColor: "#ff8a7a",
     },
   },
-  ".MuiSlider-mark": {
-    width: 1,
-    height: 8,
-    backgroundColor: "black",
+  "& .MuiSlider-thumb.Mui-disabled": {
+    backgroundColor: "#d7d7d7",
   },
-  ".MuiSlider-markLabel": {
-    position: "absolute", // Position the label absolutely
-    whiteSpace: "nowrap",
-    visibility: "hidden",
+  "& .MuiSlider-mark": {
+    width: 6,
+    height: 16,
+    borderRadius: 0,
+    backgroundColor: "#000",
+    transform: "translateX(-3px)",
+  },
+  "& .MuiSlider-markLabel": {
+    fontFamily: '"PixelMplus10", "Courier New", monospace',
+    fontSize: "0.65rem",
+    textTransform: "uppercase",
+    color: "#111",
+    padding: "2px 6px",
+    border: "2px solid #000",
+    backgroundColor: "#fff",
+    boxShadow: "3px 3px 0 #000",
+    borderRadius: 0,
+    transform: "translateX(-50%) translateY(8px)",
+    letterSpacing: "0.05em",
   },
 }));
 
 const GrindSlider: React.FC<GrindSliderProps> = ({
   max,
   clicksPerRotation,
-  currentValue,
+  value,
+  micronPerClick,
   onChange,
 }) => {
-  const [value, setValue] = useState<number>(currentValue);
-
-  useEffect(() => {
-    setValue(currentValue);
-  }, [currentValue]);
-
   const handleChange = (_: Event, newValue: number | number[]) => {
-    setValue(newValue as number);
     if (onChange) {
       onChange(newValue as number); // Notify parent of the change
     }
   };
 
-  // Generate major and minor marks based on the clicks per rotation
-  const generateMarks = () => {
-    const marks: { value: number; label: number; type: "major" | "minor" }[] =
-      [];
-    for (let i = 0; i <= max; i++) {
-      const isMajorMark = i % clicksPerRotation === 0;
-      const isMinorMark =
-        i % Math.round(clicksPerRotation / 5) === 0 && !isMajorMark;
+  // Generate major marks based on full rotations for clarity
+  const marks = useMemo(() => {
+    const formatRotation = (clicks: number) => {
+      const rotations = clicksPerRotation
+        ? clicks / clicksPerRotation
+        : clicks;
+      return Number.isInteger(rotations)
+        ? `${rotations}R`
+        : `${rotations.toFixed(1)}R`;
+    };
 
-      if (isMajorMark) {
-        marks.push({
-          value: i,
-          label: i / clicksPerRotation,
-          type: "major",
-        });
-      } else if (isMinorMark) {
-        marks.push({
-          value: i,
-          label: i % clicksPerRotation,
-          type: "minor",
-        });
-      }
+    const generated: { value: number; label: string }[] = [];
+    const step = Math.max(1, clicksPerRotation);
+
+    for (let i = 0; i <= max; i += step) {
+      generated.push({
+        value: i,
+        label: formatRotation(i),
+      });
     }
 
-    return marks;
-  };
+    if (generated.length === 0 || generated[generated.length - 1]?.value !== max) {
+      generated.push({
+        value: max,
+        label: formatRotation(max),
+      });
+    }
 
-  const renderMarkLabel = (mark: {
-    value: number;
-    label: number;
-    type: "major" | "minor";
-  }) => {
-    const positionPercentage = (mark.value / max) * 100;
+    return generated;
+  }, [clicksPerRotation, max]);
 
-    return (
-      <span
-        style={{
-          position: "absolute",
-          left: `${positionPercentage}%`,
-          transform:
-            "translateX(-50%) " +
-            (mark.type === "major" ? "translateY(-250%)" : "translateY(-200%)"),
-          whiteSpace: "nowrap",
-          fontSize: mark.type === "major" ? "1em" : "0.8em",
-        }}
-      >
-        {mark.label}
-      </span>
-    );
-  };
+  const micronValue =
+    micronPerClick && micronPerClick > 0
+      ? Math.round(value * micronPerClick)
+      : null;
 
   return (
     <div
       style={{
         width: "100%",
-        height: "auto",
         position: "relative",
+        fontFamily: '"PixelMplus10", "Courier New", monospace',
+        color: "#111",
+        textShadow: "none",
+        padding: "0.75rem 0.6rem 1.4rem",
+        border: "3px solid #000",
+        backgroundColor: "#fff8dc",
+        boxShadow: "4px 4px 0 #000",
       }}
     >
-      <div
-        style={{
-          position: "absolute",
-          right: "0%",
-          transform: "translateY(350%)",
-        }}
-      >
-        {Math.floor(value / clicksPerRotation) +
-          " rotations " +
-          Math.floor(value % clicksPerRotation) +
-          " clicks "}
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-2 text-[0.72rem] uppercase tracking-[0.04em]">
+        <span>Rot {Math.floor(value / clicksPerRotation)}</span>
+        <span>Clk {value % clicksPerRotation}</span>
+        {micronValue !== null ? <span>{micronValue} um</span> : null}
+        <span>Max {max}</span>
       </div>
       <StyledSlider
         value={value}
         max={max}
-        marks={generateMarks()}
+        step={1}
+        marks={marks}
         onChange={handleChange}
-        valueLabelDisplay="auto"
-        valueLabelFormat={(value) =>
-          `${
-            Math.floor(value / clicksPerRotation) +
-            "." +
-            Math.floor(value % clicksPerRotation)
-          }`
-        }
+        valueLabelDisplay="off"
       />
-      <div className="absolute w-[106.3%] w1200:w-[100%] top-[50%] translate-y-[-50%]">
-        {generateMarks().map((mark) => renderMarkLabel(mark))}
-      </div>
     </div>
   );
 };
