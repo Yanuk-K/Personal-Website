@@ -1,118 +1,107 @@
 import { AspectRatio } from "../components/ui/aspect-ratio";
 
+type Project = {
+  name: string;
+  description: string;
+  githubLink: string;
+  liveLink?: string;
+};
+
+const PROJECTS: Project[] = [
+  {
+    name: "This Website",
+    description:
+      "Made using Vite+Typescript, designed using Neobrutalism, Material UI, Tailwind, and powered by AWS Amplify.",
+    githubLink: "https://github.com/Yanuk-K/Personal-Website",
+    liveLink: "https://yeunwook.kim/",
+  },
+  {
+    name: "Grinder Calculator",
+    description:
+      "Grinder click caculator lets you easily convert your grinder's click sizes to other grinder's click size.",
+    githubLink:
+      "https://github.com/Yanuk-K/Personal-Website/blob/main/src/pages/GrinderCalc.tsx",
+    liveLink: "/grindercalc/",
+  },
+  {
+    name: "Raspberry Pi Riichi Mahjong Score Calculator",
+    description: "AI Riichi Mahjong score calculator using custom trained YOLO ncnn models natively running on Raspberry Pi.",
+    githubLink: "https://github.com/Yanuk-K/Raspberry-Pi-YOLO-Riichi-Mahjong",
+
+  },
+  {
+    name: "Lox Interpreter",
+    description: "Interpreter for Lox Programming Language, written in Java",
+    githubLink: "https://github.com/Yanuk-K/LOX_Interpreter",
+  },
+];
+
+const linkButton =
+  "rounded-base border-3 border-black bg-main px-4 py-2 font-PixelMplus text-xs font-black uppercase tracking-[0.24em] shadow-[4px_4px_0_#000] transition-transform hover:-translate-y-1 hover:bg-accent hover:shadow-[6px_6px_0_#000] dark:border-darkBorder dark:bg-darkBg dark:hover:bg-darkAccent";
+
 export default function Projects() {
-  const CF_URL = "https://d3w3f1g6khau4p.cloudfront.net/proj_img/";
-  const PROJECTS = [
-    {
-      name: "This Website",
-      description:
-        "Made using Vite+Typescript, designed using Neobrutalism, Material UI, Tailwind, and powered by AWS Amplify.",
-      previewImage: CF_URL + "Personal_Website.png",
-      githubLink: "www.github.com/proj3",
-      liveLink: "https://yeunwook.kim/",
-    },
-    {
-      name: "Grinder Calculator",
-      description:
-        "Grinder click caculator lets you easily convert your grinder's click sizes to other grinder's click size.",
-      previewImage: CF_URL + "Grind_Calc.jpg",
-      githubLink:
-        "https://github.com/Yanuk-K/Personal-Website/blob/main/src/pages/GrinderCalc.tsx",
-      liveLink: "/grindercalc/",
-    },
-    {
-      name: "Lox Interpreter",
-      description: "Interpreter for Lox Programming Language, written in Java",
-      previewImage: CF_URL + "Lox_I_Proj.png",
-      githubLink: "https://github.com/Yanuk-K/LOX_Interpreter",
-      liveLink: "",
-    },
-  ];
   return (
-    <>
-      {PROJECTS.map((project, id) => {
-        return (
-          <div
-            className="dark:bg-darkBg text-text dark:text-darkText border-b-4 border-r-4 border-b-black border-r-black bg-bg p-8 py-10 w600:px-[30px] w400:px-5"
-            key={id}
-          >
-            <div className="mx-auto w-3/4 w800:w-full">
-              <AspectRatio
-                className="!-bottom-[2px] rounded-base border-2 border-black shadow-base"
-                ratio={2 / 1}
-              >
-                <img
-                  className="w-full h-full rounded-base"
-                  src={`${project.previewImage}`}
-                  alt={project.name}
-                />
-              </AspectRatio>
+    <div className="flex h-full flex-col bg-bg text-text dark:bg-darkBg dark:text-darkText">
+      <div className="mx-auto flex w-full max-w-[660px] flex-1 flex-col gap-6 px-5 pb-8 pt-8 w800:max-w-[620px] w600:px-4 w500:max-w-[560px] w400:pb-6 w400:pt-6">
+        <header className="rounded-base border-4 border-black bg-main/10 p-5 shadow-[5px_5px_0_#000] dark:border-darkBorder dark:bg-darkMain/20 dark:shadow-[5px_5px_0_#000] md:p-4">
+          <p className="font-PixelMplus text-[34px] font-black uppercase tracking-[0.2em] w500:text-[28px] text-center">
+            Projects
+          </p>
+        </header>
 
-              <div className="mt-6">
-                <h2 className="text-3xl font-bold w700:text-2xl w450:text-xl">
-                  {project.name}
-                </h2>
-
-                <p className="mt-5 text-lg w450:text-base">
-                  {project.description}
-                </p>
-
-                {activeLink(project)}
+        <div className="flex flex-1 flex-col gap-6 pb-4">
+          {PROJECTS.map((project) => (
+            <article
+              key={project.name}
+              className="rounded-base border-4 border-black bg-white p-5 shadow-[5px_5px_0_#000] dark:border-darkBorder dark:bg-darkMain md:p-4"
+            >
+              <div className="space-y-4">
+                <div className="space-y-3">
+                  <h2 className="font-PixelMplus text-[24px] font-black uppercase tracking-[0.18em] w500:text-[20px]">
+                    {project.name}
+                  </h2>
+                  <p className="font-PixelMplus text-[15px] leading-relaxed tracking-[0.05em] text-[#1d1d1d] dark:text-darkText/90">
+                    {project.description}
+                  </p>
+                  <ProjectLinks
+                    liveLink={project.liveLink}
+                    githubLink={project.githubLink}
+                  />
+                </div>
               </div>
-            </div>
-          </div>
-        );
-      })}
-    </>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
-function activeLink(project: { liveLink: string; githubLink: string }) {
-  if (project.liveLink != "" && project.githubLink != "") {
-    return (
-      <div className="mt-8 grid grid-cols-2 gap-5 text-base w400:text-sm">
-        <a
-          className="border-border dark:border-darkBorder text-text shadow-light dark:shadow-dark cursor-pointer rounded-base border-2 bg-main px-4 py-2 text-center uppercase transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none"
-          href={project.liveLink}
-          target="_blank"
-        >
+type ProjectLinksProps = Pick<Project, "liveLink" | "githubLink">;
+
+function ProjectLinks({ liveLink, githubLink }: ProjectLinksProps) {
+  const hasLive = Boolean(liveLink);
+  const hasGithub = Boolean(githubLink);
+
+  return (
+    <div
+      className={`grid gap-4 text-center ${hasLive && hasGithub ? "grid-cols-2 w500:grid-cols-1" : "grid-cols-1"}`}
+    >
+      {hasLive ? (
+        <a href={liveLink} target="_blank" rel="noreferrer" className={linkButton}>
           Visit
         </a>
+      ) : null}
+      {hasGithub ? (
         <a
-          className="border-border dark:border-darkBorder text-text shadow-light dark:shadow-dark cursor-pointer rounded-base border-2 bg-main px-4 py-2 text-center uppercase transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none"
-          href={project.githubLink}
+          href={githubLink}
           target="_blank"
+          rel="noreferrer"
+          className={linkButton}
         >
           Github
         </a>
-      </div>
-    );
-  } else {
-    return (
-      <div className="mt-8 grid grid-cols-1 gap-5 text-base w400:text-sm">
-        {project.liveLink == "" ? (
-          <a
-            className="border-border dark:border-darkBorder text-text shadow-light dark:shadow-dark cursor-pointer rounded-base border-2 bg-main px-4 py-2 text-center uppercase transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none"
-            href={project.githubLink}
-            target="_blank"
-          >
-            Github
-          </a>
-        ) : (
-          <></>
-        )}
-        {project.githubLink == "" ? (
-          <a
-            className="border-border dark:border-darkBorder text-text shadow-light dark:shadow-dark cursor-pointer rounded-base border-2 bg-main px-4 py-2 text-center uppercase transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:hover:shadow-none"
-            href={project.liveLink}
-            target="_blank"
-          >
-            Visit
-          </a>
-        ) : (
-          <></>
-        )}
-      </div>
-    );
-  }
+      ) : null}
+    </div>
+  );
 }

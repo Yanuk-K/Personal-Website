@@ -182,7 +182,7 @@ function GrinderCalc() {
     <>
       <div className="min-h-[87dvh] flex flex-col items-center gap-6 bg-[#fef7e6] pb-14 px-3">
         <div className="font-PixelMplusBold text-3xl p-6 text-center tracking-[0.25em] text-[#111] drop-shadow-[2px_2px_0_#fff]">
-          <p>Grind Click Calculator</p>
+          <p>Grinder Calculator</p>
         </div>
         <div className="flex w-full max-w-[640px] flex-col gap-8">
           <div className="font-PixelMplusBold text-[0.65rem] uppercase tracking-[0.25em] text-[#111] text-center border-4 border-black bg-[#fff] px-4 py-3 shadow-[5px_5px_0_#000]">
