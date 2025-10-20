@@ -1,4 +1,4 @@
-# [Personal Website](https://yeunwook.kim/home/)
+# [Personal Website](https://yeunwook.kim/)
 
 This is my personal website, written using Vite + Typescript.
 
