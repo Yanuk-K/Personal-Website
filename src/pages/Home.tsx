@@ -51,7 +51,7 @@ function Home() {
                   Yeunwook Kim
                 </p>
                 <p className="font-PixelMplus text-[16px] leading-relaxed tracking-[0.08em] lg:text-[15px]">
-                  Hi, I'm a Mathematics-Computer Science senior at UC San Diego crafting playful, purposeful web3 experiences. I mix rigorous problem solving with human-centered design and the retro flavor powering this 8-bit playground.
+                  Hi, I'm a Mathematics-Computer Science senior at UC San Diego, building web3 experiences for everyone.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-3 md:grid-cols-1">
