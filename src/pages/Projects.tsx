@@ -1,5 +1,3 @@
-import { AspectRatio } from "../components/ui/aspect-ratio";
-
 type Project = {
   name: string;
   description: string;
