@@ -10,16 +10,11 @@ function Header() {
     },
     {
       id: 2,
-      name: "PROJECTS",
-      slug: "projects",
-    },
-    {
-      id: 3,
       name: "RESUME",
       slug: "resume",
     },
     {
-      id: 4,
+      id: 3,
       name: "CONTACTS",
       slug: "contacts",
     },
