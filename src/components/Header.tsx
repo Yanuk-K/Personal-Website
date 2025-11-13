@@ -21,7 +21,7 @@ function Header() {
   ];
   const path = window.location.pathname;
   return (
-    <nav className="border-b-border dark:border-b-darkBorder grid h-[50px] grid-cols-[1fr_1fr_1fr_1fr_50px] rounded-tr-base border-b-4 text-xl w600:text-lg w400:h-10 w400:text-base portrait:rounded-none">
+    <nav className="border-b-border dark:border-b-darkBorder grid h-[50px] grid-cols-[1fr_1fr_1fr_50px] rounded-tr-base border-b-4 text-xl w600:text-lg w400:h-10 w400:text-base portrait:rounded-none">
       {menu.map((item) => (
         <a
           key={item.id}
