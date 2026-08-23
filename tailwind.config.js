@@ -1,78 +1,55 @@
 /** @type {import('tailwindcss').Config} */
-import tailwindAnimate from "tailwindcss-animate";
-
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./index.html", "./src/**/*.{ts,tsx}"],
+  darkMode: ["class"],
   theme: {
     extend: {
-      fontFamily: {
-        PixelMplus: ["PixelMplus", "sans-serif"],
-        PixelMplusBold: ["PixelMplusBold", "sans-serif"],
-      },
       colors: {
-        main: "#8bbd68",
-        mainAccent: "#fc7303", // not needed for shadcn components
-        overlay: "rgba(0,0,0,0.8)",
-
-        // light mode
-        bg: "#FFF1DB",
-        text: "#000",
-        border: "#000",
-
-        // dark mode
-        darkBg: "#536493",
-        darkText: "#eeefe9",
-        darkBorder: "#000",
-        darkMain: "#5d7d42",
-        secondaryBlack: "#212121", // opposite of plain white, not used pitch black because borders and box-shadows are that color
+        window: "var(--breeze-window)",
+        view: "var(--breeze-view)",
+        chrome: "var(--breeze-chrome)",
+        text: "var(--breeze-text)",
+        subtle: "var(--breeze-subtle)",
+        line: "var(--breeze-line)",
+        hover: "var(--breeze-hover)",
+        "panel-tint": "var(--breeze-panel-tint)",
+        accent: "var(--breeze-accent)",
+        "accent-strong": "var(--breeze-accent-strong)",
+        "accent-fg": "var(--breeze-accent-fg)",
+        negative: "var(--breeze-negative)",
+        positive: "var(--breeze-positive)",
+      },
+      fontFamily: {
+        sans: [
+          '"Noto Sans"',
+          '"Noto Sans KR"',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          'sans-serif',
+        ],
+        mono: [
+          'ui-monospace',
+          '"JetBrains Mono"',
+          '"Cascadia Code"',
+          '"Fira Code"',
+          'Menlo',
+          'Consolas',
+          'monospace',
+        ],
       },
       borderRadius: {
-        base: "5px",
+        window: "10px",
+        panel: "18px",
       },
       boxShadow: {
-        light: "4px 4px 0px 0px #000",
-        dark: "4px 4px 0px 0px #000",
-      },
-      translate: {
-        boxShadowX: "4px",
-        boxShadowY: "4px",
-        reverseBoxShadowX: "-4px",
-        reverseBoxShadowY: "-4px",
-      },
-      fontWeight: {
-        base: "500",
-        heading: "700",
-      },
-      screens: {
-        w450: { raw: "(max-width: 450px)" },
-      },
-      animation: {
-        marquee: "marquee 15s linear infinite",
-        marquee2: "marquee2 15s linear infinite",
-      },
-      screens: {
-        smallHeight: { raw: "(max-height: 550px)" },
-        w1200: { max: "1200px" },
-        w1000: { max: "1000px" },
-        w800: { max: "800px" },
-        w700: { max: "700px" },
-        w600: { max: "600px" },
-        w500: { max: "500px" },
-        w450: { max: "450px" },
-        w400: { max: "400px" },
-      },
-      keyframes: {
-        marquee: {
-          "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-100%)" },
-        },
-        marquee2: {
-          "0%": { transform: "translateX(100%)" },
-          "100%": { transform: "translateX(0%)" },
-        },
+        window: "0 14px 42px -8px var(--breeze-shadow-xl), 0 3px 12px -2px var(--breeze-shadow)",
+        "window-unfocused": "0 8px 26px -10px var(--breeze-shadow-xl), 0 2px 8px -2px var(--breeze-shadow)",
+        panel: "0 10px 34px -6px var(--breeze-shadow-xl), 0 2px 10px -2px var(--breeze-shadow)",
+        popup: "0 12px 36px -6px var(--breeze-shadow-xl), 0 3px 12px -2px var(--breeze-shadow)",
       },
     },
   },
-  darkMode: "class",
-  plugins: [tailwindAnimate],
+  plugins: [],
 };
