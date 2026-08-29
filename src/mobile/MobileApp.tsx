@@ -25,11 +25,20 @@ function syntheticWin(appId: AppId, docId?: DocId): WinState {
   };
 }
 
-export function MobileApp({ appId }: { appId: AppId }) {
+export function MobileApp({
+  appId,
+  defaultDoc,
+}: {
+  appId: AppId;
+  defaultDoc?: DocId;
+}) {
   const meta = APP_REGISTRY[appId];
   const [searchParams] = useSearchParams();
   const requestedDoc = searchParams.get("doc") as DocId | null;
-  const docId = requestedDoc && PORTFOLIO_DOCUMENTS.some((doc) => doc.id === requestedDoc) ? requestedDoc : undefined;
+  const docId =
+    requestedDoc && PORTFOLIO_DOCUMENTS.some((doc) => doc.id === requestedDoc)
+      ? requestedDoc
+      : defaultDoc;
   const win = syntheticWin(appId, docId);
   const navigate = useNavigate();
 
@@ -48,7 +57,7 @@ export function MobileApp({ appId }: { appId: AppId }) {
     <div className="flex h-[100dvh] flex-col bg-view">
       <header className="flex shrink-0 items-center gap-2 border-b border-line bg-chrome px-2 py-2">
         <Link
-          to="/"
+          to="/home"
           aria-label="Back to home screen"
           className="flex items-center gap-0.5 rounded-md px-1.5 py-1 text-accent hover:bg-hover"
         >

@@ -16,7 +16,13 @@ import {
 } from "./icons";
 import { isAppId, type DocId } from "../state/fs";
 
-export function Desktop({ initialApp }: { initialApp?: string }) {
+export function Desktop({
+  initialApp,
+  openAboutInitially = false,
+}: {
+  initialApp?: string;
+  openAboutInitially?: boolean;
+}) {
   const { windows } = useWindows();
   const theme = useTheme();
   const openApp = useOpenApp();
@@ -38,6 +44,11 @@ export function Desktop({ initialApp }: { initialApp?: string }) {
   useEffect(() => {
     if (isAppId(initialApp)) {
       openApp(initialApp);
+    } else if (openAboutInitially) {
+      openApp("kate", {
+        payload: { docId: "about" },
+        title: "About Me.md — Kate",
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
