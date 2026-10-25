@@ -4,12 +4,13 @@ import { APP_REGISTRY } from "../apps/registry";
 import { PINNED_APPS } from "../apps/registry";
 import { useTheme } from "../theme/ThemeProvider";
 import { WALLPAPERS } from "../theme/wallpapers";
-import { ContactsAppIcon, FileDocIcon, KonsoleIcon } from "../desktop/icons";
+import { CoffeeIcon, ContactsAppIcon, FileDocIcon, KonsoleIcon } from "../desktop/icons";
 
 const DESKTOP_SHORTCUTS = [
   { label: "About Me.md", to: "/app/kate?doc=about", icon: <FileDocIcon size={28} /> },
   { label: "Resume", to: "/app/kate?doc=resume", icon: <FileDocIcon size={28} /> },
   { label: "Konsole", to: "/app/konsole", icon: <KonsoleIcon size={28} /> },
+  { label: "Coffee", to: "/app/coffee", icon: <CoffeeIcon size={28} /> },
   { label: "Contacts", to: "/app/contacts", icon: <ContactsAppIcon size={28} /> },
 ];
 

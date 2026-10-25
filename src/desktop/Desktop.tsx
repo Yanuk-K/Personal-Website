@@ -10,6 +10,7 @@ import { KRunner } from "./KRunner";
 import { AppContent } from "../apps/AppContent";
 import { APP_REGISTRY } from "../apps/registry";
 import {
+  CoffeeIcon,
   ContactsAppIcon,
   FileDocIcon,
   KonsoleIcon,
@@ -117,6 +118,13 @@ export function Desktop({
           onSelect={() => setSelectedIcon("contacts")}
           onOpen={() => openApp("contacts")}
           icon={<ContactsAppIcon size={34} />}
+        />
+        <DesktopIcon
+          label="Coffee"
+          selected={selectedIcon === "coffee"}
+          onSelect={() => setSelectedIcon("coffee")}
+          onOpen={() => openApp("coffee")}
+          icon={<CoffeeIcon size={34} />}
         />
       </div>
 

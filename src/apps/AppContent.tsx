@@ -3,8 +3,8 @@ import { Dolphin } from "./dolphin/Dolphin";
 import { Konsole } from "./konsole/Konsole";
 import { Kate } from "./kate/Kate";
 import { Settings } from "./settings/Settings";
-import { GrinderCalcApp } from "./grindercalc/GrinderCalcApp";
 import { Contacts } from "./contacts/Contacts";
+import { CoffeeApp } from "./coffee/CoffeeApp";
 
 export function AppContent({ win }: { win: WinState }) {
   switch (win.appId) {
@@ -16,9 +16,9 @@ export function AppContent({ win }: { win: WinState }) {
       return <Kate win={win} />;
     case "settings":
       return <Settings />;
-    case "grindercalc":
-      return <GrinderCalcApp />;
     case "contacts":
       return <Contacts />;
+    case "coffee":
+      return <CoffeeApp win={win} />;
   }
 }

@@ -7,6 +7,8 @@ import contactsAsset from "../assets/papirus/contacts.svg";
 import kubuntuLauncherAsset from "../assets/papirus/kubuntu-launcher.svg";
 import folderAsset from "../assets/papirus/folder.svg";
 import textDocumentAsset from "../assets/papirus/text-document.svg";
+import coffeeAsset from "../assets/breeze/coffee.svg";
+import grinderAsset from "../assets/openclipart/coffee-grinder.svg";
 
 type IconProps = {
   size?: number;
@@ -39,27 +41,55 @@ export function SettingsAppIcon({ size = 32, className }: IconProps) {
 }
 
 export function GrinderCalcIcon({ size = 32, className }: IconProps) {
+  const inner = Math.round(size * 0.84);
   return (
-    <svg width={size} height={size} viewBox="0 0 48 48" className={className} aria-hidden>
-      <defs>
-        <linearGradient id="grinder-body" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#8d6748" />
-          <stop offset="1" stopColor="#5d4130" />
-        </linearGradient>
-      </defs>
-      <rect x="3" y="3" width="42" height="42" rx="11" fill="#efe3d3" />
-      <path d="M17 9h14l-2.4 7H19.4Z" fill="#3b2b20" />
-      <rect x="15" y="16" width="18" height="18" rx="3" fill="url(#grinder-body)" />
-      <rect x="18.5" y="20" width="11" height="6.5" rx="1.6" fill="#d8c7ae" />
-      <path d="M33 12.5a7.5 7.5 0 0 1 6 7.3" fill="none" stroke="#3b2b20" strokeWidth="2.4" strokeLinecap="round" />
-      <circle cx="39.5" cy="20.5" r="2.6" fill="#3b2b20" />
-      <path d="M19 37h10" stroke="#3b2b20" strokeWidth="2.4" strokeLinecap="round" />
-    </svg>
+    <span
+      className={`inline-flex shrink-0 items-center justify-center ${className ?? ""}`}
+      style={{
+        width: size,
+        height: size,
+        borderRadius: "23%",
+        background: "#efe3d3",
+      }}
+    >
+      <img
+        src={grinderAsset}
+        height={inner}
+        style={{ width: "auto" }}
+        alt=""
+        aria-hidden
+        draggable={false}
+      />
+    </span>
   );
 }
 
 export function ContactsAppIcon({ size = 32, className }: IconProps) {
   return <AppIcon asset={contactsAsset} size={size} className={className} />;
+}
+
+export function CoffeeIcon({ size = 32, className }: IconProps) {
+  const inner = Math.round(size * 0.84);
+  return (
+    <span
+      className={`inline-flex shrink-0 items-center justify-center ${className ?? ""}`}
+      style={{
+        width: size,
+        height: size,
+        borderRadius: "23%",
+        background: "#efe3d3",
+      }}
+    >
+      <img
+        src={coffeeAsset}
+        width={inner}
+        height={inner}
+        alt=""
+        aria-hidden
+        draggable={false}
+      />
+    </span>
+  );
 }
 
 function AppIcon({ asset, size, className }: { asset: string; size: number; className?: string }) {

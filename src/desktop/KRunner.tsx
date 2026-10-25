@@ -174,7 +174,7 @@ export function KRunner({ open, onClose }: { open: boolean; onClose: () => void 
               <li className="px-3 pb-2 pt-1 text-[11px] font-semibold uppercase tracking-wider text-subtle">
                 Try searching for…
               </li>
-              {["Konsole", "Projects", "Grinder Calculator", "GitHub"].map(
+              {["Konsole", "Projects", "Coffee", "Grinder Calculator", "GitHub"].map(
                 (hint) => (
                   <li key={hint} className="rounded-md px-3 py-2 text-[13px] text-subtle">
                     {hint}

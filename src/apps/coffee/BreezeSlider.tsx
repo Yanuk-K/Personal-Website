@@ -27,6 +27,13 @@ export function BreezeSlider({
     for (let i = 0; i <= max; i += step) {
       generated.push({ value: i, label: formatRotation(i) });
     }
+    // Drop a rotation mark that would collide with the max label on narrow
+    // sliders (e.g. Comandante's 50/51 clicks).
+    const minGap = Math.max(1, Math.round(clicksPerRotation * 0.2));
+    const lastMark = generated[generated.length - 1];
+    if (lastMark && lastMark.value !== max && max - lastMark.value < minGap) {
+      generated.pop();
+    }
     if (
       generated.length === 0 ||
       generated[generated.length - 1]?.value !== max

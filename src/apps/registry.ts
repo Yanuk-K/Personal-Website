@@ -1,9 +1,9 @@
 import type { ComponentType } from "react";
 import type { AppId } from "../state/fs";
 import {
+  CoffeeIcon,
   ContactsAppIcon,
   DolphinIcon,
-  GrinderCalcIcon,
   KateIcon,
   KonsoleIcon,
   SettingsAppIcon,
@@ -64,16 +64,6 @@ export const APP_REGISTRY: Record<AppId, AppMeta> = {
     minW: 620,
     minH: 420,
   },
-  grindercalc: {
-    id: "grindercalc",
-    name: "Grinder Calculator",
-    genericName: "Coffee Utility",
-    icon: GrinderCalcIcon,
-    w: 640,
-    h: 640,
-    minW: 460,
-    minH: 420,
-  },
   contacts: {
     id: "contacts",
     name: "Contacts",
@@ -84,6 +74,17 @@ export const APP_REGISTRY: Record<AppId, AppMeta> = {
     minW: 520,
     minH: 400,
   },
+  coffee: {
+    id: "coffee",
+    name: "Coffee",
+    genericName: "Brewing & Grinding",
+    icon: CoffeeIcon,
+    w: 920,
+    h: 660,
+    minW: 660,
+    minH: 500,
+    singleInstance: true,
+  },
 };
 
 export const PINNED_APPS: AppId[] = [
@@ -91,6 +92,6 @@ export const PINNED_APPS: AppId[] = [
   "konsole",
   "kate",
   "contacts",
-  "grindercalc",
+  "coffee",
   "settings",
 ];

@@ -54,7 +54,7 @@ export const CONTACTS: Contact[] = [
 
 export const PROJECTS: Project[] = [
   { id: "this-website", name: "This Website", description: "A Kubuntu-inspired Breeze desktop recreated on the web, with draggable windows, Plasma panel, Kickoff, KRunner, and working apps.", githubLink: "https://github.com/Yanuk-K/Personal-Website", liveLink: "https://yeunwook.kim/" },
-  { id: "grinder-calculator", name: "Grinder Calculator", description: "Converts grinder click settings between grinders through micron-equivalent click sizes.", githubLink: "https://github.com/Yanuk-K/Personal-Website/blob/main/src/apps/grindercalc/GrinderCalcApp.tsx", liveLink: "/app/grindercalc" },
+  { id: "grinder-calculator", name: "Grinder Calculator", description: "Converts grinder click settings between grinders through micron-equivalent click sizes.", githubLink: "https://github.com/Yanuk-K/Personal-Website/blob/main/src/apps/coffee/GrinderCalc.tsx", liveLink: "/app/coffee?view=grinder" },
   { id: "mahjong-scoring", name: "Raspberry Pi Riichi Mahjong Score Calculator", description: "An AI Riichi Mahjong score calculator using custom YOLO NCNN models on Raspberry Pi.", githubLink: "https://github.com/Yanuk-K/Raspberry-Pi-YOLO-Riichi-Mahjong" },
   { id: "lox-interpreter", name: "Lox Interpreter", description: "A Java interpreter for the Lox programming language.", githubLink: "https://github.com/Yanuk-K/LOX_Interpreter" },
   { id: "ultimate-vocal-remover", name: "Ultimate Vocal Remover GUI for gfx1151", description: "A Linux AMD Radeon gfx1151 / ROCm fork of Ultimate Vocal Remover GUI with RoFormer support.", githubLink: "https://github.com/Yanuk-K/ultimatevocalremovergui_gfx1151" },

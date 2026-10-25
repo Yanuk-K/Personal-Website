@@ -1,0 +1,45 @@
+Name: OXO Lungo
+22g bean 220ml 93c water very coarse(9-9.5 on k ultra) grind slow push, saturate later
+
+Name: OXO soup
+22g bean 75ml 93c water espresso grind slow initial push and push quickly after initial push
+
+Name: Aeropress Hoffman
+11g bean 200g 93c water or 14g 250ml
+0:00 200ml
+2:00 shake server
+2:30 extraction
+3:00 finish
+
+Name: Namja Coffee v60
+15g 260ml 86c
+0:00 70ml stir 3 times
+0:30 210ml
+1:20 260ml
+2:30 finish
+
+Name: B75 18g
+18g bean 180ml 93c
+0:00 30ml
+0:30 70ml
+1:00 120ml
+1:30 180ml
+
+Name: v60 500ml
+30g bean 500ml 93c
+0:00 60ml
+0:45 300ml
+1:15 500ml stir clockwise 1 counterclockwise 1
+3:00 finish
+
+Name: B75 20g
+0:00 60ml
+0:30 130ml
+1:00 200ml
+1:15 300ml(with drip assist)
+
+Name: Aeropress Tricolate(needs special drip assist x2)
+15h bean 210ml 93c don't shake beans only use wdt tool
+0:00 45ml
+1:00 210ml
+4:30 finish

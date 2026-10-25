@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState, type ReactNode } from "react";
 import { List, arrayMove } from "react-movable";
 import { BreezeSlider } from "./BreezeSlider";
+import { GrinderCalcIcon } from "../../desktop/icons";
 import { useNotifications } from "../../state/notifications";
 
 type Grinder = {
@@ -21,7 +22,7 @@ const MAX_MICRONS = 1400;
 const inputCls =
   "w-full rounded-md border border-line bg-view px-3 py-2 text-[13px] outline-none placeholder:text-subtle focus:border-accent focus:ring-2 focus:ring-accent/25";
 
-export function GrinderCalcApp() {
+export function GrinderCalc() {
   const { notify } = useNotifications();
   const [grinders, setGrinders] = useState<Grinder[]>(defaultGrinders);
   const [order, setOrder] = useState<string[]>(
@@ -118,8 +119,12 @@ export function GrinderCalcApp() {
   const activeMicrons = Math.max(0, Math.min(MAX_MICRONS, micronValue));
 
   return (
-    <div className="breeze-scroll h-full overflow-y-auto px-5 py-5">
-      <div className="mx-auto flex w-full max-w-[560px] flex-col gap-4">
+    <div className="mx-auto w-full max-w-[560px] px-4 py-4 md:px-6 md:py-5">
+      <header className="mb-4 flex items-center gap-2.5">
+        <GrinderCalcIcon size={30} />
+        <h1 className="text-[22px] font-bold">Grinder Calculator</h1>
+      </header>
+      <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between rounded-lg border border-line bg-chrome/50 px-4 py-2.5">
           <p className="text-[13px]">
             {activeGrinder ? (

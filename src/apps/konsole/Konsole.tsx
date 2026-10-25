@@ -8,6 +8,7 @@ import {
 import { findFolder, PROJECTS, type AppId, type FsNode } from "../../state/fs";
 import { useWindows, type WinState } from "../../state/windows";
 import { APP_REGISTRY } from "../registry";
+import { RECIPES } from "../coffee/recipes";
 
 type Line =
   | { kind: "input"; text: string }
@@ -41,7 +42,7 @@ const HELP_LINES = [
   "  socials           contact links",
   "  ls / cd / cat     explore the filesystem",
   "  pwd               print working directory",
-  "  open <app>        launch an app (dolphin, kate, settings, contacts, grindercalc)",
+  "  open <app>        launch an app (dolphin, kate, settings, contacts, coffee)",
   "  coffee            brew report",
   "  clear             clear the terminal",
   "  exit              close konsole",
@@ -139,9 +140,9 @@ export function Konsole({ win }: { win?: WinState }) {
         break;
       case "coffee":
         push(
-          { kind: "output", text: "Brew report: light roast · 30g · 16.6:1 · 93°C" },
+          { kind: "output", text: `Brew report: ${RECIPES.length} recipes on file · light roast · 93°C` },
           { kind: "output", text: "Origami + V60 filters. Status: dialing in…" },
-          { kind: "output", text: "Run `open grindercalc` to convert grinder clicks." },
+          { kind: "output", text: "Run `open coffee` for the brew guide, live timers, and grinder calculator." },
         );
         break;
       case "ls": {

@@ -7,16 +7,16 @@ export type AppId =
   | "konsole"
   | "kate"
   | "settings"
-  | "grindercalc"
-  | "contacts";
+  | "contacts"
+  | "coffee";
 
 export const APP_IDS: AppId[] = [
   "dolphin",
   "konsole",
   "kate",
   "settings",
-  "grindercalc",
   "contacts",
+  "coffee",
 ];
 
 export function isAppId(value: string | undefined): value is AppId {
@@ -64,7 +64,7 @@ export const HOME_FS: FsNode = {
         appNode("konsole", "Konsole"),
         appNode("kate", "Kate"),
         appNode("contacts", "Contacts"),
-        appNode("grindercalc", "Grinder Calculator"),
+        appNode("coffee", "Coffee"),
         appNode("settings", "System Settings"),
       ],
     },
